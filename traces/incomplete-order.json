@@ -1,0 +1,21 @@
+{
+  "traceId": "incomplete-order-001",
+  "description": "Incomplete order flow - missing payment step",
+  "steps": [
+    {
+      "service": "orderService",
+      "operation": "createOrder",
+      "timestamp": "2025-10-01T10:00:00Z"
+    },
+    {
+      "service": "inventoryService",
+      "operation": "reserveStock",
+      "timestamp": "2025-10-01T10:00:02Z"
+    },
+    {
+      "service": "shippingService",
+      "operation": "createShipment",
+      "timestamp": "2025-10-01T10:00:03Z"
+    }
+  ]
+}

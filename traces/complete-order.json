@@ -1,0 +1,26 @@
+{
+  "traceId": "complete-order-001",
+  "description": "Complete order flow with all steps",
+  "steps": [
+    {
+      "service": "orderService",
+      "operation": "createOrder",
+      "timestamp": "2025-10-01T10:00:00Z"
+    },
+    {
+      "service": "paymentService",
+      "operation": "processPayment",
+      "timestamp": "2025-10-01T10:00:01Z"
+    },
+    {
+      "service": "inventoryService",
+      "operation": "reserveStock",
+      "timestamp": "2025-10-01T10:00:02Z"
+    },
+    {
+      "service": "shippingService",
+      "operation": "createShipment",
+      "timestamp": "2025-10-01T10:00:03Z"
+    }
+  ]
+}

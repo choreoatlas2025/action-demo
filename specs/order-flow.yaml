@@ -1,0 +1,26 @@
+info:
+  title: "Order Fulfillment Flow"
+  description: "Standard e-commerce order processing flow"
+
+services:
+  orderService:
+    operations: [createOrder]
+  paymentService:
+    operations: [processPayment]
+  inventoryService:
+    operations: [reserveStock]
+  shippingService:
+    operations: [createShipment]
+
+flow:
+  - step: "Create Order"
+    call: "orderService.createOrder"
+
+  - step: "Process Payment"
+    call: "paymentService.processPayment"
+
+  - step: "Reserve Inventory"
+    call: "inventoryService.reserveStock"
+
+  - step: "Create Shipment"
+    call: "shippingService.createShipment"

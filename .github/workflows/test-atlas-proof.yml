@@ -1,0 +1,44 @@
+name: Test Atlas Proof
+
+on:
+  push:
+    branches: [main, 'test/**']
+  pull_request:
+
+jobs:
+  test-pass:
+    name: Test Pass Scenario
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate complete trace
+        uses: choreoatlas2025/action@v0.0.1
+        with:
+          flowspec: 'specs/order-flow.yaml'
+          trace: 'traces/complete-order.json'
+          threshold: '0.90'
+          format: 'text'
+
+  test-fail:
+    name: Test Fail Scenario
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate incomplete trace
+        id: validate
+        uses: choreoatlas2025/action@v0.0.1
+        with:
+          flowspec: 'specs/order-flow.yaml'
+          trace: 'traces/incomplete-order.json'
+          threshold: '0.90'
+          format: 'text'
+        continue-on-error: true
+
+      - name: Show outputs
+        run: |
+          echo "Match Rate: ${{ steps.validate.outputs.matchRate }}"
+          echo "Missing Count: ${{ steps.validate.outputs.missing_count }}"
+          echo "Passed: ${{ steps.validate.outputs.passed }}"
