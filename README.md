@@ -104,5 +104,5 @@ Apache-2.0
 ## Links
 
 - [Action Repository](https://github.com/choreoatlas2025/action)
-- [ChoreoAtlas Website](https://choreoatlas.com)
-- [Documentation](https://choreoatlas.io/docs)
+- [ChoreoAtlas Website](https://cq365.eu.org/)
+- [Documentation](https://cq365.eu.org/docs/)
